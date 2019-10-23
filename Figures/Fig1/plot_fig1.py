@@ -48,15 +48,7 @@ ax42 = plt.subplot(gs2[1])
 ax43 = plt.subplot(gs2[2])
 ax44 = plt.subplot(gs2[3])
 
-'''
-ax43p = ax43.get_position()
-ax43p.y0 += 0.03
-ax43.set_position(ax43p)
 
-ax44p = ax44.get_position()
-ax44p.y0 += 0.03
-ax44.set_position(ax44p)
-'''
 ax43p = ax43.get_position()
 ax43p.y0 += 0.023
 ax43p.y1 -= 0.008
@@ -74,27 +66,6 @@ ax44.set_aspect('equal')
 
 move_axis(ax44, - 0.035, 0)
 move_axis(ax42, - 0.03, 0)
-
-
-# move_axis(ax43, - 0.03, - 0.02)
-# move_axis(ax44, - 0.03, - 0.01)
-
-
-'''
-ax41c = fig.add_axes([0.22, 0.32, 0.12, 0.17])
-ax41c.set_aspect('equal')
-ax41c.set_xticks([])
-ax41c.set_yticks([])
-
-ax42c = fig.add_axes([0.07, 0.095, 0.12, 0.17])
-ax42c.set_aspect('equal')
-ax42c.set_xticks([])
-ax42c.set_yticks([])
-
-
-ax41 = fig.add_axes([0.07, 0.25, 0.15, 0.25])
-ax42 = fig.add_axes([0.2, 0.06, 0.15, 0.25])
-'''
 
 
 mdata = sio.loadmat("fig1_data_two_spinn")
@@ -183,34 +154,13 @@ cbar = fig.colorbar(imax4, cax=ax44c, ticks=[- 1, 0, 1])
 ax44c.set_ylabel('Correlation', position=[0.8, 0.48], labelpad=-10)
 
 
-
-
-
-
 def plot_wline(xx, yy, wd, color, label):
     for ii in range(xx.size):
         cxx = xx[ii]
         cyy = yy[ii]
         ax1.semilogy([cxx - wd, cxx + wd], [cyy, cyy], color=color, 
                      linewidth=2, label=label)
-
-'''
-pert_ind = np.array([1, 2, 0, 3])
-prob_ori = prob_ori[0, pert_ind]
-prob_pert = prob_pert[0, pert_ind]
-ind_prob = np.arange(4)
-plot_wline(ind_prob, prob_ori, 0.2,  'C0', label=r'$h = 0$')
-plot_wline(ind_prob, prob_pert, 0.2, 'C1', label=r'$h = h^*$')
-handles, labels = ax1.get_legend_handles_labels()
-ax1.legend(handles[:: 4], labels[:: 4], loc=[0.02, 0.04])
-ax1.set_yticks([0.01, 0.1, 0.5])
-ax1.get_yaxis().set_major_formatter(mpb.ticker.ScalarFormatter())
-ax1.set_xticklabels(['', '(1, -1)', '(- 1, 1)', '(- 1, -1)', '(1, 1)'])
-ax1.set_xlabel('State')
-ax1.set_ylabel('Probability')
-# ax1.semilogy(ind_prob, prob_ori, 'o')
-# ax1.semilogy(ind_prob, prob_pert, 'o')
-'''
+        
 
 ax1.plot(line_para.T, corr_minus.T)
 ax1.plot([0, 1.6], [0, 0], '--', color='k')
@@ -308,14 +258,6 @@ ax5p.y0 += 0.01
 ax5.set_position(ax5p)
 move_axis(ax5, 0.007, 0)
 
-# ax5.set_xlim([- 0.3, 7.3])
-# ax5.set_ylim([- 4, 0.7])
-# ax5.set_aspect(7.6 / 4.7)
-
-
-# ax5.set_xticklabels([2, 5, 8])
-# ax5.set_yticks([- 4, - 2, 0])
-# ax5.set_yticklabels([r'$10^{- 4}$', r'$10^{- 2}$', r'$1$'])
 
 
 ax6.semilogy(inten_list, rec_trinv[0, :].T, label=r'$h = 0$')
@@ -332,14 +274,7 @@ move_axis(ax6, 0.01, 0)
 
 
 abcd_size = 18
-'''
-mk_up = 0.02
-mk_down = 1 - mk_up
-fig.text(mk_up, mk_up, '+', fontsize=abcd_size)
-fig.text(mk_up, mk_down, '+', fontsize=abcd_size)
-fig.text(mk_down, mk_down, '+', fontsize=abcd_size)
-fig.text(mk_down, mk_up, '+', fontsize=abcd_size)
-'''
+
 xx0 = 0.05
 xx1 = 0.37
 xx2 = 0.65
