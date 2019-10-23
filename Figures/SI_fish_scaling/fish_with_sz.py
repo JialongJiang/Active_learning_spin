@@ -83,7 +83,7 @@ ax2.set_yticklabels(['1e-2', '1e-4', '1e-6', '1e-8'])
 ax2.set_xticks(ind_round)
 ax2.set_xlabel('Number of perturbations')
 ax2.set_ylabel(r'Fold change of $\mathrm{Tr}\mathcal{I}^{- 1}$')
-ax2.yaxis.set_label_coords(- 0.2, 0.5)
+# ax2.yaxis.set_label_coords(- 0.2, 0.5)
 
 ind_round = np.arange(0, 6)
 plot_traj(ax3, ind_round, np.log10(rec_ftrinv[0, :, :]).T, 'C0', lab='8-node')
@@ -97,7 +97,7 @@ ax3.set_yticklabels(['1e2', '1e6', '1e10'])
 ax3.set_xticks(ind_round)
 ax3.set_xlabel('Number of perturbations')
 ax3.set_ylabel(r'$\mathrm{Tr}\mathcal{I}^{- 1}$')
-ax3.yaxis.set_label_coords(- 0.2, 0.65)
+# ax3.yaxis.set_label_coords(- 0.2, 0.65)
 ax3.legend()
 
 fxx1 = 0.04

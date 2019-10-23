@@ -22,6 +22,11 @@ mpb.rcParams.update({'figure.dpi': 300})
 mdata = sio.loadmat("three_node_optimal")
 locals().update(mdata)
 
+'''
+change the index to plot two different networks
+'''
+# cur_ind = 0
+cur_ind = 1
 
 figw = 15.3 / 2.54 * 2
 figh = figw * 2.3 / 3
@@ -40,8 +45,6 @@ ax7 = plt.subplot(gs[1, 4])
 axbait = fig.add_axes([0.2, 0.48, 0.012, 0.01])
 axbait.axis('off')
 
-# cur_ind = 0
-cur_ind = 1
 
 topo_ind = topo_list[0, cur_ind] - 1
 j_mat = - rec_net[:, :, topo_ind]
@@ -157,8 +160,10 @@ fishn = rec_fish[cur_ind, :, :]
 [eigw, eigv] = np.linalg.eig(fishn)
 idx = eigw.argsort()[::-1]  
 eigw = eigw[idx]
-eigv = eigv[:, idx]
-eigv = np.eye(3)
+if cur_ind == 0:    
+    eigv = eigv[:, idx]
+else:        
+    eigv = np.eye(3)
 ax7im = plot_eig(ax7, np.log(eigw), eigv)
 ax7.set_xlabel('Log of eigenvalue')
 

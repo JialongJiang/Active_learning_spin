@@ -35,7 +35,6 @@ gs = gridspec.GridSpec(2, 3, width_ratios=[1, 1, 1], height_ratios=[1, 1],
                        wspace=0.25, hspace=0.25)
 
 
-
 ax1 = plt.subplot(gs[0])
 ax2 = plt.subplot(gs[1])
 ax2pos = ax2.get_position()
@@ -177,14 +176,6 @@ ax5.yaxis.set_label_coords(- 0.13, 0.5)
 
 
 abcd_size = 18
-'''
-mk_up = 0.02
-mk_down = 1 - mk_up
-fig.text(mk_up, mk_up, '+', fontsize=abcd_size)
-fig.text(mk_up, mk_down, '+', fontsize=abcd_size)
-fig.text(mk_down, mk_down, '+', fontsize=abcd_size)
-fig.text(mk_down, mk_up, '+', fontsize=abcd_size)
-'''
 
 fxx1 = 0.04
 fxx2 = 0.34

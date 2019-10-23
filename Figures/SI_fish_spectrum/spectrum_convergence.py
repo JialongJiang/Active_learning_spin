@@ -3,7 +3,7 @@
 """
 Created on Wed Apr  3 22:29:04 2019
 
-@author: jialongjiang
+@author: Jialong Jiang
 """
 
 import matplotlib.pyplot as plt
@@ -46,36 +46,6 @@ ax4c = fig.add_axes([0.9, 0.69, 0.013, 0.16])
 cbar = fig.colorbar(ax4im, cax=ax4c)
 ax4c.set_ylabel(r'Squared inner product')
 
-
-
-'''
-def scatter_density(ax, data1, data2, datain):    
-    counts, xbins, ybins = np.histogram2d(np.log(data1).flatten(), np.log(data2).flatten(), bins=20)
-    xbinn = (xbins[1:] + xbins[: - 1]) / 2
-    ybinn = (ybins[1:] + ybins[: - 1]) / 2
-    ax.contour(np.exp(xbinn), np.exp(ybinn), counts.T, colors='k', zorder=100)
-    ax.loglog(data1, data2, '.', alpha=0.2)
-    axp = ax.get_position()
-    axpp = axp
-    axpp.y1 = (axp.y0 + axp.y1) / 2 + 0.002
-    axpp.x1 = (axp.x0 + axp.x1) / 2 + 0.002
-    axpp.y0 += 0.003
-    axin = fig.add_axes(axpp)    
-    axin.set_aspect('equal')
-    axin.set_xticks([])
-    axin.set_yticks([])
-    axin.imshow(np.abs(datain), clim=[0, 1], cmap=plt.cm.Blues)
-    axin.set_title('Inner product')
-
-    
-    
-scatter_density(ax4, data_realfishd[:, 0, :], data_vspread[:, 0, :], 
-                data_meaninnop[:, :, 0])    
-scatter_density(ax5, data_realfishd[:, 1, :], data_vspread[:, 1, :], 
-                data_meaninnop[:, :, 1]) 
-scatter_density(ax6, data_realfishd[:, 5, :], data_vspread[:, 5, :], 
-                data_meaninnop[:, :, 5]) 
-'''
 
 ax1.loglog(data_realfishd[:, 0, :], data_fishd[:, 0, :], '.')
 ax1.set_xlim([1e-8, 1e2])
