@@ -1,3 +1,5 @@
+clear all
+
 num_spin = 3;
 num_j = 3;
 h_vec = zeros(num_spin, 1);
