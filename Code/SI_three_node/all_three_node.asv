@@ -86,4 +86,24 @@ end
 
 rec_ctrinv = [rec_oritrinv; rec_mintrinv];
 
+%{
+cur_dir = [- 1; 1; 1] / sqrt(3);
+
+fun_hand = @(inten) fisher_trinv(fisher_inf_exact(j_mat, h_vec + inten * cur_dir));
+[cur_inten, trinv_val] = fminbnd(fun_hand, 0, 40, opt_option);
+               
+rec_bestdir(it_topo, :) = cur_dir;
+rec_bestinten(it_topo) = cur_inten;
+    
+cur_fish = fisher_inf_exact(j_mat, h_vec + cur_inten * cur_dir);
+rec_fish(it_topo, :, :) = cur_fish;
+rec_energy(it_topo, :) = make_spectrum(j_mat, cur_inten * cur_dir);
+
+for jj = 1: num_line
+    rec_land(it_topo, jj) = fisher_trinv(fisher_inf_exact(j_mat, h_vec + list_inten(jj) * cur_dir));
+end    
+%}
+
+
+
     

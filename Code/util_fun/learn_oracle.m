@@ -7,9 +7,9 @@ num_j = size(real_fish, 1);
 
 creal_fish = real_fish;
 options = optimoptions(@fminunc, 'Display', 'iter');
-rec_fish = zeros(num_j, num_j, num_iter);
+rec_fish = zeros(num_j, num_j, num_iter + 1);
 rec_vec = zeros(num_spin, num_iter + 1); 
-
+rec_fish(:, :, 1) = real_fish; 
 
 for ii = 2: num_iter + 1
     regu_const = 1e-6;
@@ -27,8 +27,5 @@ for ii = 2: num_iter + 1
     end
     creal_fish = creal_fish + fisher_inf_exact(j_mat, xx);
     rec_vec(:, ii) = xx;
-    % [realv, reald] = eig(creal_fish);
-    % rec_realv(:, :, ii) = realv; 
-    % rec_reald(:, ii) = diag(reald); 
-    % rec_fish(:, :, ii) = creal_fish;
+    rec_fish(:, :, ii) = creal_fish;
 end
