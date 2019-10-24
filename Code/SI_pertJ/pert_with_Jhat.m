@@ -19,12 +19,12 @@ cfish = fisher_inf_exact(j_mat, h_vec);
 rec_vec = h_vec; 
 
 num_repeat = 10; 
-%{
+
 rec_perthat = zeros(num_spin, num_repeat); 
 rec_pertori = zeros(num_spin, num_repeat); 
 rec_estij = zeros(num_spin, num_spin, num_repeat); 
 rec_estifish = zeros(num_j, num_j, num_repeat); 
-%}
+
 options = optimoptions(@fminunc, 'Display', 'iter', 'OptimalityTolerance', 1e-6);
     
 for indii = 1: num_repeat    

@@ -24,16 +24,9 @@ samplingmix = 1e3;
 sample_size = 5e6; 
 train_with_oracle
 
-steps = rec_ctrain{1}.steps; 
-for ii = 1: num_iter + 1
-    cdat = rec_ctrain{ii};    
-    meanerr = cdat.rec_mean; 
-    topkerr = cdat.rec_topk(:, 1); 
-    subplot(1, 2, 1)
-    plot(steps, meanerr)
-    hold on 
-    subplot(1, 2, 2)
-    plot(steps, topkerr)
-    hold on 
-end
+
+rec_ctrain 
+hold on 
+
+
 hold off

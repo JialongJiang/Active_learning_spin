@@ -19,7 +19,7 @@ num_rec = floor(num_epoch / rec_gap);
 rec_l2 = zeros(num_rec, 1);
 rec_topk = zeros(num_rec, 3);
 rec_mean = zeros(num_rec, 1);
-list_step = 1: rec_gap: num_epoch;
+list_step = 1: rec_gap: num_round * num_epoch;
 
 rec_count = 1;
 
@@ -51,7 +51,7 @@ for jj = 1: num_epoch
     % Compute stepsize and sum over all gradient over history 
     cur_stepsz = stepsz / counter ^ decayp;
     %cur_j = cur_j + cur_stepsz * (sum(rec_jgrad, 3) - lam_l2 * sign(wthresh(cur_j, 's', 1e-2)));
-    cur_j = cur_j + cur_stepsz * (sum(rec_jgrad, 3) - lam_l2 * cur_j); 
+    cur_j = cur_j + cur_stepsz * (sum(rec_jgrad, 3) - lam_l2 * cur_j; 
     %cur_h = cur_h + cur_stepsz * sum(rec_hgrad, 2);
     counter = counter + 1;
 
