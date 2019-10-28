@@ -37,3 +37,21 @@ for ii = 1: num_iter + 1
     hold on 
 end
 hold off
+
+jmax = max(abs(j_mat(:)));
+subplot(2, 2, 1)
+imagesc(- rec_curj{1})
+colormap(redblue)
+caxis([- jmax, jmax])
+subplot(2, 2, 2)
+imagesc(- rec_curj{3})
+colormap(redblue)
+caxis([- jmax, jmax])
+subplot(2, 2, 3)
+imagesc(- rec_curj{6})
+colormap(redblue)
+caxis([- jmax, jmax])
+subplot(2, 2, 4)
+imagesc(- j_mat)
+colormap(redblue)
+caxis([- jmax, jmax])
