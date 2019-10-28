@@ -1,7 +1,7 @@
-%module16; 
+module16; 
 
 num_iter = 5; 
-%learn_oracle; 
+learn_oracle; 
 
 cfish = 0; 
 rec_fish = zeros(num_j, num_j,num_iter + 1); 
@@ -55,3 +55,10 @@ subplot(2, 2, 4)
 imagesc(- j_mat)
 colormap(redblue)
 caxis([- jmax, jmax])
+
+figure
+for ii = 1: 6
+    subplot(2, 3, ii)
+    imagesc(mean(rec_all_corr(:, :, 1: ii), 3))
+    caxis([- 1, 1])
+end
